@@ -160,23 +160,26 @@ export default function App() {
             <p className="mt-2 text-slate-600">Trage dich ein, um Produktupdates, Beta-Einladungen und Investor-News zu erhalten.</p>
 
             <form
-              action={FORM_ACTION}
-              method="POST"
-              target="_blank"
-              className="mt-6 flex flex-col sm:flex-row gap-3 items-center justify-center"
-              aria-label="Newsletter anmelden"
-            >
-              <input type="hidden" name="_subject" value="Neue Newsletter-Anmeldung - Juniors Invest" />
-              <input
-                type="email"
-                name="email"
-                required
-                placeholder="Deine E-Mail"
-                className="flex-1 px-4 py-3 rounded-full border border-slate-200 focus:outline-none focus:ring-2 focus:ring-emerald-100"
-                aria-label="E-Mail"
-              />
-              <button type="submit" className="px-6 py-3 rounded-full bg-emerald-600 text-white">Anmelden</button>
-            </form>
+  action="https://formsubmit.co/el/romecu"
+  method="POST"
+  className="mt-6 flex flex-col sm:flex-row gap-3 justify-center"
+>
+  <input type="hidden" name="_next" value="https://juniorsinvest.com/thank-you" />
+  <input
+    type="email"
+    name="email"
+    required
+    placeholder="Deine E-Mail-Adresse"
+    className="px-4 py-3 rounded-xl border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500 w-full sm:w-80"
+  />
+  <button
+    type="submit"
+    className="bg-blue-600 hover:bg-blue-700 text-white font-semibold px-6 py-3 rounded-xl shadow-md transition-all"
+  >
+    Jetzt anmelden
+  </button>
+</form>
+
 
             <p className="mt-3 text-xs text-slate-400">Datenschutz: Wir verwenden deine E-Mail nur für Produktupdates. Ergänze Impressum & Datenschutzerklärung für rechtliche Sicherheit.</p>
           </div>
@@ -220,6 +223,11 @@ export default function App() {
               </details>
             </div>
           </div>
+          <footer className="text-center text-sm text-gray-500 py-6">
+  <a href="/impressum" className="mx-2 hover:underline">Impressum</a> |
+  <a href="/datenschutz" className="mx-2 hover:underline">Datenschutz</a>
+</footer>
+
         </footer>
       </main>
     </div>
