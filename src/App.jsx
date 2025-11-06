@@ -162,23 +162,32 @@ export default function App() {
             <form
   action="https://formsubmit.co/el/romecu"
   method="POST"
-  className="mt-6 flex flex-col sm:flex-row gap-3 justify-center"
+  className="flex flex-col sm:flex-row gap-3 w-full max-w-md mx-auto mt-8"
 >
+  {/* Weiterleitung nach erfolgreichem Absenden */}
   <input type="hidden" name="_next" value="https://juniorsinvest.com/thank-you" />
+
+  {/* SPAM-Schutz */}
+  <input type="hidden" name="_captcha" value="false" />
+
+  {/* Eingabefeld */}
   <input
     type="email"
     name="email"
     required
     placeholder="Deine E-Mail-Adresse"
-    className="px-4 py-3 rounded-xl border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500 w-full sm:w-80"
+    className="flex-1 px-4 py-2 rounded-md border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500"
   />
+
+  {/* Absenden-Button */}
   <button
     type="submit"
-    className="bg-blue-600 hover:bg-blue-700 text-white font-semibold px-6 py-3 rounded-xl shadow-md transition-all"
+    className="bg-blue-600 text-white px-5 py-2 rounded-md hover:bg-blue-700 transition"
   >
     Jetzt anmelden
   </button>
 </form>
+
 
 
             <p className="mt-3 text-xs text-slate-400">Datenschutz: Wir verwenden deine E-Mail nur für Produktupdates. Ergänze Impressum & Datenschutzerklärung für rechtliche Sicherheit.</p>
