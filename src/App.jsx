@@ -159,18 +159,28 @@ export default function App() {
             <h3 className="text-2xl font-bold">Bleib informiert</h3>
             <p className="mt-2 text-slate-600">Trage dich ein, um Produktupdates, Beta-Einladungen und Investor-News zu erhalten.</p>
 
-            <form
+          <form
   action="https://formsubmit.co/el/romecu"
   method="POST"
   className="flex flex-col sm:flex-row gap-3 w-full max-w-md mx-auto mt-8"
 >
-  {/* Weiterleitung nach erfolgreichem Absenden */}
-  <input type="hidden" name="_next" value="https://juniorsinvest.com/thank-you" />
-
-  {/* SPAM-Schutz */}
+  {/* Hidden fields */}
   <input type="hidden" name="_captcha" value="false" />
+  <input type="hidden" name="_template" value="table" />
 
-  {/* Eingabefeld */}
+  {/* Automatische Weiterleitung — funktioniert mit und ohne www */}
+  <input
+    type="hidden"
+    name="_next"
+    value="https://juniorsinvest.com/thank-you"
+  />
+  <input
+    type="hidden"
+    name="_after"
+    value="https://www.juniorsinvest.com/thank-you"
+  />
+
+  {/* Eingabe */}
   <input
     type="email"
     name="email"
@@ -179,7 +189,7 @@ export default function App() {
     className="flex-1 px-4 py-2 rounded-md border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500"
   />
 
-  {/* Absenden-Button */}
+  {/* Button */}
   <button
     type="submit"
     className="bg-blue-600 text-white px-5 py-2 rounded-md hover:bg-blue-700 transition"
