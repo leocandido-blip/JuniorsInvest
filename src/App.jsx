@@ -160,19 +160,14 @@ export default function App() {
             <p className="mt-2 text-slate-600">Trage dich ein, um Produktupdates, Beta-Einladungen und Investor-News zu erhalten.</p>
 
           <form
-  action="https://formsubmit.co/el/romecu"
+  name="newsletter"
   method="POST"
+  data-netlify="true"
+  action="/thank-you"
   className="flex flex-col sm:flex-row gap-3 w-full max-w-md mx-auto mt-8"
 >
-  {/* Hidden fields */}
-  <input type="hidden" name="_captcha" value="false" />
-  <input
-    type="hidden"
-    name="_next"
-    value="https://juniorsinvest.com/thank-you"
-  />
+  <input type="hidden" name="form-name" value="newsletter" />
 
-  {/* Eingabe */}
   <input
     type="email"
     name="email"
@@ -188,6 +183,7 @@ export default function App() {
     Jetzt anmelden
   </button>
 </form>
+
 
 
 
