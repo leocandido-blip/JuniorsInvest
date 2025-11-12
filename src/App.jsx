@@ -159,15 +159,25 @@ export default function App() {
             <h3 className="text-2xl font-bold">Bleib informiert</h3>
             <p className="mt-2 text-slate-600">Trage dich ein, um Produktupdates, Beta-Einladungen und Investor-News zu erhalten.</p>
 
-          <form
+         <form
   name="newsletter"
   method="POST"
-  data-netlify="true"
-  action="/thank-you"
+  action="https://script.google.com/macros/s/AKfycbz1fpDJ_GonJx-GsfMGRjmjIALJfJLxeUA6a78Eg3ipFXrPSdz-nMaFREmbJzCayMgI/exec"
   className="flex flex-col sm:flex-row gap-3 w-full max-w-md mx-auto mt-8"
->
-  <input type="hidden" name="form-name" value="newsletter" />
+  onSubmit={(e) => {
+    e.preventDefault();
+    const form = e.target;
+    const data = new FormData(form);
 
+    fetch(form.action, { method: "POST", body: data })
+      .then(() => {
+        window.location.href = "/thank-you"; // Weiterleitung nach erfolgreicher Anmeldung
+      })
+      .catch(() => {
+        alert("Es ist ein Fehler aufgetreten. Bitte versuche es erneut.");
+      });
+  }}
+>
   <input
     type="email"
     name="email"
